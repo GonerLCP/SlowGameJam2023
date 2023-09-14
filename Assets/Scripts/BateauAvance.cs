@@ -22,7 +22,6 @@ public class BateauAvance : MonoBehaviour
         velocityAvance = new Vector2(0.0f, 1.0f);
         velocityBump = new Vector2(0.0f, -1.0f);
         speed = 0.0f;
-        maxspeed = 1.8f;
         speedRotate = 35.0f;
     }
 
@@ -35,7 +34,7 @@ public class BateauAvance : MonoBehaviour
         }
         else
         {
-            maxspeed = 1.8f;
+            maxspeed = 1.2f;
         }
         if (coroutined)
         {
