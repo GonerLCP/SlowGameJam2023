@@ -8,6 +8,9 @@ TagManager:
   - Filet
   - FiletRentre
   - Secondary
+  - Surface
+  - Moyen
+  - Profond
   layers:
   - Default
   - TransparentFX
