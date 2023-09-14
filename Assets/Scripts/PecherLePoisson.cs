@@ -14,6 +14,7 @@ public class PecherLePoisson : MonoBehaviour
     public bool Raie;
     bool go;
     public Butee Butee;
+    public Cadre Cadre;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,7 +66,8 @@ public class PecherLePoisson : MonoBehaviour
                 timer = 0f;
                 ferrer = false;
                 Hareng = false;
-                print("Hareng péché");
+                Cadre.BougerLeCadre(0);
+                print("Hareng péché");  
             }
 
             if (Lieu == true)
@@ -74,6 +76,7 @@ public class PecherLePoisson : MonoBehaviour
                 ferrer = false;
                 Lieu = false;
                 print("Lieu péché");
+                Cadre.BougerLeCadre(1);
             }
             if (Raie == true)
             {
@@ -81,6 +84,7 @@ public class PecherLePoisson : MonoBehaviour
                 timer = 0f;
                 ferrer = false;
                 Raie = false;
+                Cadre.BougerLeCadre(2);
             }
         }
 
