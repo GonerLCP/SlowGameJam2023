@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.U2D;
+using UnityEngine.XR;
 
 public class BateauAvance : MonoBehaviour
 {
@@ -13,9 +14,12 @@ public class BateauAvance : MonoBehaviour
     Vector2 velocityBump;
     public float speed;
     public float maxspeed;
-    public bool night;
     float speedRotate;
     bool coroutined = true;
+    public Night night;
+    public AudioSource source;
+    public AudioClip clip;
+    bool yes;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -23,14 +27,19 @@ public class BateauAvance : MonoBehaviour
         velocityBump = new Vector2(0.0f, -1.0f);
         speed = 0.0f;
         speedRotate = 35.0f;
+        yes = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (night == true)
+        if (night.Day == false)
         {
-            maxspeed = 1.0f;
+            maxspeed = 0.9f;
+            if (speed > 0.9f)
+            {
+                speed = 0.9f;
+            }
         }
         else
         {
@@ -66,6 +75,16 @@ public class BateauAvance : MonoBehaviour
                 {
                     transform.Rotate(Vector3.forward * speedRotate * Time.deltaTime);
                 }
+                if (yes == true)
+                {
+                    source.PlayOneShot(clip);
+                    yes = false;
+                }
+            }
+            else
+            {
+                source.Stop();
+                yes = true;
             }
 
             transform.Translate(velocityAvance * ((speed * speed) / 2) * Time.deltaTime);

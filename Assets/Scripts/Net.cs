@@ -19,7 +19,6 @@ public class Net : MonoBehaviour
         velocityAvance = new Vector2(0.0f, 1.0f);
         Depliage = false;
         Rentre = true;
-        dureteedelaremontee = 1;
     }
 
     // Update is called once per frame

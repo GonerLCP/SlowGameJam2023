@@ -17,7 +17,7 @@ public class Phare : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= 5f)
+        if (timer >= 25f)
         {
             gameObject.GetComponent<SpriteRenderer>().enabled = true;
 
